@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SampleList</string>
+    <string name="title_user_info">User Info</string>
 </resources>

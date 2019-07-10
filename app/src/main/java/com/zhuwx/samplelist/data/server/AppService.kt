@@ -1,7 +1,6 @@
 package com.zhuwx.samplelist.data.server
 
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import com.zhuwx.samplelist.data.DataSource
 import com.zhuwx.samplelist.data.model.Album
 import com.zhuwx.samplelist.data.model.User
@@ -24,12 +23,8 @@ object AppService: DataSource {
         return gson.fromJson(jsonStr, Array<User>::class.java).toList()
     }
 
-    override fun getAlbums(userId: Int): List<Album> = get<List<Album>>(URL_ALBUMS + userId)
-
-    private fun <T> get(url: String): T {
-        val jsonStr = URL(url).readText()
-        val listType = object : TypeToken<T>() {}.type
-        return gson.fromJson(jsonStr, listType)
+    override fun getAlbums(userId: Int): List<Album> {
+        val jsonStr = URL(URL_ALBUMS + userId).readText()
+        return gson.fromJson(jsonStr, Array<Album>::class.java).toList()
     }
-
 }

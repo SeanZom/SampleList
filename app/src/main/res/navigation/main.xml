@@ -5,10 +5,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     app:startDestination="@id/userInfoFragment">
 
-
     <fragment
         android:id="@+id/userInfoFragment"
         android:name="com.zhuwx.samplelist.ui.info.UserInfoFragment"
         android:label="UserInfoFragment"
-        tools:layout="@layout/fragment_user_info"/>
+        tools:layout="@layout/fragment_user_info">
+        <action
+            android:id="@+id/action_userInfoFragment_to_albumFragment"
+            app:destination="@id/albumFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/albumFragment"
+        android:name="com.zhuwx.samplelist.ui.album.AlbumFragment"
+        android:label="AlbumFragment"
+        tools:layout="@layout/fragment_album">
+        <argument
+            android:name="userId"
+            app:argType="integer"/>
+    </fragment>
 </navigation>
