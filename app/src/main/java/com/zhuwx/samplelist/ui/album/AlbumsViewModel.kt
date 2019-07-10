@@ -14,7 +14,7 @@ import com.zhuwx.samplelist.vo.Status
  *  Date : 2019-07-10 - 12:01
  *  Description :
  */
-class AlbumViewModel(albumId: Int) : ViewModel() {
+class AlbumsViewModel(albumId: Int) : ViewModel() {
     private val _status = MutableLiveData<Status>().apply { value = Status.LOADING }
 
     private val _albums = DataRepository.getAlbums(albumId)

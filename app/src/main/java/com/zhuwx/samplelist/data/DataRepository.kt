@@ -38,6 +38,10 @@ object DataRepository {
         return _currentAlbums
     }
 
+    fun getAlbum(id: Int): Album {
+        return _currentAlbums.value!!.find { it.id == id }!!
+    }
+
     private fun refreshUsers() {
         GlobalScope.launch(Dispatchers.Main) {
             val users = withContext(Dispatchers.IO) {

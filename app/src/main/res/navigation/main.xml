@@ -22,5 +22,16 @@
         <argument
             android:name="userId"
             app:argType="integer"/>
+        <action android:id="@+id/action_albumFragment_to_albumDetailFragment"
+                app:destination="@id/albumDetailFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/albumDetailFragment"
+        android:name="com.zhuwx.samplelist.ui.detail.AlbumDetailFragment"
+        android:label="AlbumDetailFragment"
+        tools:layout="@layout/fragment_album_detail">
+        <argument
+            android:name="albumId"
+            app:argType="integer"/>
     </fragment>
 </navigation>

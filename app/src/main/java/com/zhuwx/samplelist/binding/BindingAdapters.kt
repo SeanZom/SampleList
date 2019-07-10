@@ -3,6 +3,7 @@ package com.zhuwx.samplelist.binding
 import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.squareup.picasso.Picasso
 
 /**
@@ -22,6 +23,12 @@ object BindingAdapters {
     @JvmStatic
     @BindingAdapter("imgUrl")
     fun bindImage(imageView: ImageView, url: String?) {
-        Picasso.get().load(url).into(imageView)
+        val loadingDrawable = CircularProgressDrawable(imageView.context).apply {
+            strokeWidth = 10f
+            centerRadius = 50f
+            start()
+        }
+
+        Picasso.get().load(url).placeholder(loadingDrawable).into(imageView)
     }
 }
